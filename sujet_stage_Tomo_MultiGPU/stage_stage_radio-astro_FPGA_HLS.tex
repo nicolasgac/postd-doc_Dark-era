@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper,french]{article}
+%\usepackage{commun}
+%\usepackage{mes_math}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{float}
+%\usepackage{floatflt}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage{calc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+
+\usepackage{eurosym}
+
+\usepackage[dvips]{colortbl}
+
+\usepackage{geometry}
+\usepackage{epsfig}
+%\usepackage{hyperref}
+
+\pagestyle{empty}
+
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+            \newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+\begin{document}
+
+
+ \begin{center}
+ \begin{figure}[!htbp]
+  %\includegraphics[scale=0.3]{L2S_tutelles_vertical}
+\hfill
+   %\includegraphics[scale=0.5]{logo_Saclay}
+ \end{figure}
+ \end{center}
+\vspace{-1.0cm}
+
+\begin{center}
+  \textbf{\textsc{\Large{Accélération d'algorithmes d'inversion de données en radioastronomie sur FPGA avec outils HLS}}} \\   
+stage de M2R / printemps 2021 \\
+\end{center}
+
+%\vspace{0.2 cm}
+%Le GPI (Groupe Problèmes Inverses) est impliqué dans le projet SKA (Square Kilometer Array) à travers le pilotage d’un PEPS Astro-Info (SKALLAS 2018-2019), d’un projet ANR (DARK-ERA 2021-25) la délégation CNRS d’un agent (2017-2019) et deux thèses démarrant à l’automne 2019 financées l’une par la région Ile de France (DIM ACAV) et l’autre par l’ED STIC
+
+\scriptsize{
+\textbf{Mots Clefs} : Calcul parallèle, FPGA, High Level Synthesis,
+Radioastronimie \\
+\\
+Le très grand \MYhref{https://www.youtube.com/channel/UCZNfANC208EymDxSyTJWrQg}{radiotelescope SKA} [GPI-2020] va générer dès 2024 une quantité massive de données ($\sim$10 Tb/s) impossible à stocker qui impose un traitement en temps réel. Le défi à relever est de générer des images multidimensionnelles du ciel avec un gain en sensibilité d’un ordre de magnitude à partir du flux de données brutes provenant des milliers d’antennes. Sur toute la chaîne de traitement, une démarche d’Adéquation Algorithme Architecture devra donc être mise en œuvre pour respecter les contraintes de débit, coût et précision de calcul, ainsi que de consommation énergétique. Dans le cadre du projet ANR Dark-era (2021-25) et ExaSKA (2019-22), le L2S en collaboration avec l’IETR, l’IRISA, les observatoires de Paris et de la Côte d’Azur et Atos Bull explore la mise en œuvre des méthodes nouvelles d'imagerie et de calibration en apportant son expertise en résolution de problème inverse accéléré sur GPU et FPGA. Les travaux du stagiaire s’inscriront dans cette dynamique de recherche du \MYhref{https://l2s.centralesupelec.fr/poles/signaux-et-statistiques/gpi-fr/}{Groupe Problème Inverse (GPI)}.
+
+\begin{center}
+\begin{minipage}[htb]{0.47\linewidth}
+\begin{center}
+ \includegraphics[width=1.0\textwidth]{pipeline.png}\\
+ \textit{Chaîne de traitement de SKA en mode imageur}
+ \end{center}
+ \end{minipage}
+ \begin{minipage}[htb]{0.52\linewidth}
+ \begin{center}
+ \includegraphics[width=1.0\textwidth]{FPGA_opencL_SDK.jpg}\\\vspace{0.35cm}
+ \textit{Plateforme d'accélération sur FPGA avec outils HLS}
+ \end{center}
+ \end{minipage}
+\end{center}
+
+Les processeurs many cores de type GPUs (\textit{Graphic
+Processing Units}) sont à l'heure actuelle la cible technologique privilégiée afin d'obtenir des facteurs d'accélération d'un ou deux ordres de magnitude. Toutefois, des architectures conçues sur FPGAs peuvent se révéler des alternatives intéressantes aux GPUs car potentiellement à plus basse consommation. Poussées par une volonté des constructeurs de les rendre plus accessibles pour leur utilisation sur des algorithmes tout public, la technologie FPGA connait un réel regain d'intérêt. Sur ce thème, le GPI a principalement mené ses travaux pour la reconstruction tomographique [Martelli2018] mais s'intéresse également à la radioastronomie comme étude de cas. En particulier, les nouveaux outils d'accélération logicielle proposés par Xilinx et Intel promettent de pouvoir utiliser les FPGAs sans passer par les descriptions matérielles usuelles (VHDL, Verilog, ...) mais en utilisant un langage de haut niveau comme le C, le C++, OpenCL. Ces outils, bien que fournissant une abstraction permettant une facilité d'accès inégalée sur ces plateformes, apportent leurs lots de compromis, et une des thématiques du stage sera de les évaluer. Le stage de niveau M2R proposé aura pour objectif d’accélérer un des élements de la chaine de traitement du SDP (Science Data Processor) identifié comme pertient pour l'utilisation des FPGAs. Les données à traiter proviendront d'un simulateur et/ou de \MYhref{https://nenufar.obs-nancay.fr/en/homepage-en/}{NenuFAR}, radiotelescope à petite échelle de l'observatoire de Nançay.  \\
+\\
+Le candidat en \textbf{Master 2} aura des compétences en \textbf{programmation parallèle} de type Cuda/OpenCL ainsi qu'une connaissance générale des architectures usuelles (CPU, GPU, FPGA). Un bon niveau de connaissance en \textbf{traitement du signal et des images} sera tout particulièrement appréciées.  \\
+\\
+\scriptsize{\textbf{Possibilité de poursuite en thèse} avec la moitié du financement par le projet ANR Dark-era et l'autre moitié via le concours de l'ED STIC de l'université Paris Saclay.} \\
+\begin{tabular}{ll}
+\end{tabular}\\
+\begin{tabular}{lcll}
+\underline{Lieu} &:& \multicolumn{2}{l}{\MYhref{https://l2s.centralesupelec.fr}{Laboratoire L2S}, CentraleSupélec, Gif-sur-yvette (91140)}\\
+\underline{Contacts L2S}& :& nicolas.gac@l2s.centralesupelec.fr& \MYhref{https://l2s.centralesupelec.fr/u/gac-nicolas/}{https://l2s.centralesupelec.fr/u/gac-nicolas}\\
+%& &   francois.orieux@l2s.centralesupelec.fr&\MYhref{https://l2s.centralesupelec.fr/u/orieux-francois/}{https://l2s.centralesupelec.fr/u/orieux-francois/}\\
+& &   daouda.diakite@l2s.centralesupelec.fr &\MYhref{https://l2s.centralesupelec.fr/u/diakite-daouda/}{https://l2s.centralesupelec.fr/u/diakite-daouda/}\\
+\end{tabular}\\
+}\\
+\tiny{
+$[$GPI-2020$]$ Vidéo réalisée à l'occasion de la fête de la science 2020 : \MYhref{https://www.youtube.com/watch?v=ro2mqx5QQnI&feature=youtu.be}{https://www.youtube.com/watch?v=ro2mqx5QQnI&feature=youtu.be} \\
+$[$Martelli2018$]$ M. Martelli, N. Gac et al., 3D Tomography on Intel FPGAs Using OpenCL, J SPS, 2018, \MYhref{https://hal.archives-ouvertes.fr/hal-01831884}{link on HAL}
+}
+\end{document}
