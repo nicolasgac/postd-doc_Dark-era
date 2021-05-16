@@ -1,0 +1,139 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24.2cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{-1.24cm}
+\setlength{\parskip}{0pt}
+
+
+\usepackage{pstricks}
+\usepackage{amssymb,enumerate,theorem,fancyhdr}
+\usepackage{epic,eepic}
+%\usepackage[draft]{graphicx}
+\usepackage{graphicx}
+%\usepackage{bibtex}
+\usepackage[numbers]{natbib}
+\usepackage[official]{eurosym}
+\usepackage[english]{babel}
+%\usepackage{natbib}
+\usepackage{textcomp}
+\usepackage{subcaption}
+%\usepackage{color}
+%\usepackage{soul}
+\usepackage{url}
+\usepackage{tabularx}
+%\usepackage{tikz,pgfgantt}
+\graphicspath{{./Figs/}}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+            
+\usepackage{acronym}
+
+\usepackage{comment}
+
+\begin{document}
+
+\pagestyle{fancy}
+\lhead[]%
+      {\fancyplain{}{\includegraphics[scale=0.3]{L2S_tutelles_vertical.eps}   }}
+     % \chead{\includegraphics[scale=0.3]{}} 
+\rhead[]%
+      {\fancyplain{}{ \includegraphics[scale=0.3]{logo_ANR_avec_numero_projet}  \hspace{0.3cm} \includegraphics[scale=0.25]{DARKERA_logo_color}   }      }%on peut mettre du\bfseries
+\rfoot{}\cfoot{}
+
+
+\vspace*{1cm}
+\fbox{
+\begin{minipage}{0.8\textwidth}
+\begin{center}
+  \large{Dark-Era postdoctoral fellowship \textit{- autumn 2021}} \\ \vspace{0.2 cm} \textbf{\Large{Radioastronomy imager accelerated on FPGA \\through High Level Synthesis} }
+\end{center}
+\end{minipage}
+}
+
+
+\vspace{0.5cm}
+\noindent
+\small{
+\begin{tabular}{lm{12cm}}
+\textbf{Keywords:}&parallel computing, FPGA, HLS, inverse problem, radioastronomy \\
+\\
+\textbf{Duration:}&12 months (with a possible extension) \\
+\\
+\textbf{Gross salary:}& approximately 2500 k\euro\ monthly \textit{-- je me renseigne auprès de Pascale Debever} \\
+\\
+\textbf{Application:}& The position is available immediately and applications will be accepted until this position is filled. \textit{A National Security clearance is needed, and it can require approximately 2 months.}\\
+\end{tabular}\\
+\\
+
+
+\hspace{-0.8cm}\begin{tabular}{lll}
+ \multicolumn{3}{l}{\textbf{\href{https://l2s.centralesupelec.fr}{Laboratoire des Signaux et Systèmes (L2S)}}, \href{https://l2s.centralesupelec.fr/en/research-fields/signal-and-statistics/gpi-en/}{Inverse Problem Group (GPI)}}\\
+ \multicolumn{3}{l}{CentraleSupélec, 3 rue Joliot Curie, 91912 Gif sur Yvette, France}\\
+ \underline{contact}: & nicolas.gac@l2s.centralesupelec.fr& \href{https://l2s.centralesupelec.fr/u/gac-nicolas/}{https://l2s.centralesupelec.fr/u/gac-nicolas/}\\
+ & francois.orieux@l2s.centralesupelec.fr& \href{https://pro.orieux.fr}{https://pro.orieux.fr}\\
+\end{tabular}\\
+
+
+
+%\begin{tabular}{lclr}
+%\underline{\textbf{Contacts:}}&L2S& nicolas.gac@l2s.centralesupelec.fr& 01 69 85 17 38\\
+%&&\multicolumn{2}{l}{\href{http://nicolas.gac.l2s.centralesupelec.fr}{http://nicolas.gac.l2s.centralesupelec.fr}}\\
+%& &francois.orieux@l2s.centralesupelec.fr& 01 69 85 17 47 \\
+%&&\multicolumn{2}{l}{\href{http://nicolas.gac.l2s.centralesupelec.fr}{http://nicolas.gac.l2s.centralesupelec.fr}}\\
+%&SATIE& thomas.rodet@ens-cachan.fr&01 47 40 21 13 \\
+%\end{tabular}\\ 
+\vspace{0.2 cm}
+\paragraph{SKA computing, an HPC challenge} 
+The \textbf{exascale radio telescope} Square Kilometre Array (SKA) \cite{skatelescope} will require supercomputers with high technical demands. The Science Data Processor (SDP) pipeline \cite{datapath} in charge of producing the multidimensional images of the sky will have to execute in \textbf{realtime} a \textbf{complex algorithm chain} with data coming from telescopes at an incredible \textbf{rate of several Tb/s} and \textbf{limited storage possibilities}. The SDP will also have to be \textbf{as green as possible} with an energy budget of only 1 MWatt for 250 Petaflops. 
+
+\vspace{0.5cm}
+
+    \begin{figure}[!h]
+        \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pipeline}
+        \caption{SKA data processing pipeline}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FPGA_opencL_SDK}
+        \caption{High Level Synthesis (HLS) through Intel OpenCL SDK on an FPGA board}
+        \end{subfigure}
+        \end{figure}
+
+
+\paragraph{FPGA as an alternative to GPU.} 
+Aside from the GPU mainstream architecture, alternative accelerators present \textbf{better power-efficiency} and cannot be already put off the road for the final \ac{sdp} implementation. Among the alternative solutions, FPGA is a hardware architecture offering a  greater degree of liberties than architectures based on processors like CPU, GPU or Kalray MPPA with a design dedicated to algorithms. However, the usual synthesis flows require hardware expertise and long implementation time. One of the promises of the emerging High Level Synthesis (HLS) tools is to make FPGA development accessible by software engineers with hardware implementations generated from software programming languages like C, C++, or OpenCL. 
+Afterwards, the \ac{fpga} design can be optimised gradually with the integration of hardware blocks. The dedicated FPGA solutions usually outperform GPU ones using the whole available computing power and avoiding memory congestion. First results obtained by the Astron Team for radioastronomy are already encouraging \cite{10.1007/978-3-030-29400-7_36}.
+
+%\newpage
+\paragraph{A collaborative work.} This work will part of the \textbf{ANR project, Dark-Era} \cite{dark-era} which aims to : (i) build \textbf{SimSDP}, a rapid prototyping tool providing exascale simulations from dataflow algorithm description, (ii) explore \textbf{low power accelerators} like FPGA or Kalray MPPA as alternatives to mainstream GPU architecture and (iii) be source of proposals for SKA computing and promoting french contributions such as \textbf{ddfacet} \cite{Tasse18}. Dark-Era gathers from the \textbf{SimGrid} \cite{SimGrid} development Team at IRISA, the \textbf{PREESM} \cite{preesm} development team at IETR, the \textbf{inverse problem} team at L2S, and two \textbf{radio astronomy} teams at Observatories of Paris and Côte d’Azur. The \href{https://l2s-supelec.wabeo-dev.xyz/en/poles/signaux-et-statistiques/gpi-en/}{inverse problems team (GPI)} has a mixed expertise in architecture and signal processing with a long-term experience in deconvolution applied to astronomy ; On that topic, a PhD is in progress working on GPU acceleration in collaboration with Atos-Bull \cite{fete-science}. The GPI has driven research works on Intel FPGA acceleration through HLS tools since 2016 for tomography reconstruction, another inverse problem \cite{martelli:hal-01831884,diakite:hal-02500994}.
+
+
+\paragraph{PostDoc Goal.} Exploration of the potential of FPGA acceleration with High Level Synthesis tools will be done through the design of an SDP prototype for \textbf{NenuFAR} \cite{nenufar} ; this very large low-frequency radio telescope located at Nançay Observatory has been inaugurated in Oct. 2019. It will produce visibility throughput about one hundred times lower than SKA1-LOW and adjustable to the single node prototype capabilities. The FPGA prototype will be designed through Intel FPGA SDK for OpenCL ; The FPGA prototype will be set up at Nançay, connected to the correlator output visibility stream, to run in realtime its SDP pipeline. A main interest to this study is to deliver performance feedbacks in time, memory and energy to SimSDP. Indeed evaluation of the performance gain using FPGA inside HPC nodes in this specific use case, will be particulary usefull to assess which role could play FPGA in SKA like future HPC projects.
+
+
+ \paragraph{Candidate Profile.} 
+ \begin{enumerate}
+    \item \textbf{PhD in computer science} (or signal processing);
+    \item Experience in \textbf{computing acceleration} on \textbf{FPGA} (Intel or Xilinx) or \textbf{GPU} (Cuda/OpenCL);
+    \item Good background in signal processing;
+    \item Experience in publishing high quality research papers.
+ \end{enumerate}
+ 
+
+
+\bibliographystyle{IEEEtran-bis}
+%\bibliographystyle{agsm}
+\setlength{\bibsep}{0.pt} 
+%\renewcommand{\bibsection}{}
+\bibliography{dark-era.bib}
+
+\end{document}
