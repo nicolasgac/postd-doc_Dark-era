@@ -64,9 +64,9 @@
 \begin{tabular}{lm{12cm}}
 \textbf{Keywords:}&parallel computing, FPGA, HLS, inverse problem, radioastronomy \\
 \\
-\textbf{Duration:}&12 months (with a possible extension) \\
+\textbf{Duration:}&12 months (possibility to extend to 6 or 12 additional months) \\
 \\
-\textbf{Gross salary:}& approximately 2500 k\euro\ monthly \textit{-- je me renseigne auprès de Pascale Debever} \\
+\textbf{Gross salary:}& approximately 3200 k\euro\ monthly  \\
 \\
 \textbf{Application:}& The position is available immediately and applications will be accepted until this position is filled. \textit{A National Security clearance is needed, and it can require approximately 2 months.}\\
 \end{tabular}\\
@@ -110,14 +110,18 @@ The \textbf{exascale radio telescope} Square Kilometre Array (SKA) \cite{skatele
 
 
 \paragraph{FPGA as an alternative to GPU.} 
-Aside from the GPU mainstream architecture, alternative accelerators present \textbf{better power-efficiency} and cannot be already put off the road for the final SDP implementation. Among the alternative solutions, FPGA is a hardware architecture offering a  greater degree of liberties than architectures based on processors like CPU, GPU or Kalray MPPA with a design dedicated to algorithms. However, the usual synthesis flows require hardware expertise and long implementation time. One of the promises of the emerging High Level Synthesis (HLS) tools is to make FPGA development accessible by software engineers with hardware implementations generated from software programming languages like C, C++, or OpenCL. 
+Aside from the GPU mainstream architecture, alternative accelerators present \textbf{better power-efficiency} and cannot be already aside the road for the final SDP implementation. Among the alternative solutions, FPGA is an hardware architecture offering a unique fine-grain task and data parallelism compared to architectures based on processors like CPU, GPU or Kalray MPPA with a design dedicated to algorithms. However, the usual synthesis flows require hardware expertise and long implementation time. One of the promises of the emerging High Level Synthesis (HLS) tools is to make FPGA development accessible by software engineers with hardware implementations generated from software programming languages like C, C++, or OpenCL. 
 Afterwards, the FPGA design can be optimised gradually with the integration of hardware blocks. The dedicated FPGA solutions usually outperform GPU ones using the whole available computing power and avoiding memory congestion. First results obtained by the Astron Team for radioastronomy are already encouraging \cite{10.1007/978-3-030-29400-7_36}.
 
 %\newpage
 \paragraph{A collaborative work.} This work will part of the \textbf{ANR project, Dark-Era} \cite{dark-era} which aims to : (i) build \textbf{SimSDP}, a rapid prototyping tool providing exascale simulations from dataflow algorithm description, (ii) explore \textbf{low power accelerators} like FPGA or Kalray MPPA as alternatives to mainstream GPU architecture and (iii) be source of proposals for SKA computing and promoting french contributions such as \textbf{ddfacet} \cite{Tasse18}. Dark-Era gathers from the \textbf{SimGrid} \cite{SimGrid} development Team at IRISA, the \textbf{PREESM} \cite{preesm} development team at IETR, the \textbf{inverse problem} team at L2S, and two \textbf{radio astronomy} teams at Observatories of Paris and Côte d’Azur. The \href{https://l2s-supelec.wabeo-dev.xyz/en/poles/signaux-et-statistiques/gpi-en/}{inverse problems team (GPI)} has a mixed expertise in architecture and signal processing with a long-term experience in deconvolution applied to astronomy ; On that topic, a PhD is in progress working on GPU acceleration in collaboration with Atos-Bull \cite{fete-science}. The GPI has driven research works on Intel FPGA acceleration through HLS tools since 2016 for tomography reconstruction, another inverse problem \cite{martelli:hal-01831884,diakite:hal-03226257}.
 
 
-\paragraph{PostDoc Goal.} Exploration of the potential of FPGA acceleration with High Level Synthesis tools will be done through the design of an SDP prototype for \textbf{NenuFAR} \cite{nenufar} ; this very large low-frequency radio telescope located at Nançay Observatory has been inaugurated in Oct. 2019. It will produce visibility throughput about one hundred times lower than SKA1-LOW and adjustable to the single node prototype capabilities. The FPGA prototype will be designed through Intel FPGA SDK for OpenCL and/or OneAPI, and will be set up at Nançay, connected to the correlator output visibility stream, to run in realtime its SDP pipeline. A main interest to this study is to deliver performance feedbacks in time, memory and energy to SimSDP. Indeed evaluation of the performance gain using FPGA inside HPC nodes in this specific use case, will be particulary usefull to assess which role could play FPGA in SKA like future HPC projects.
+
+\paragraph{PostDoc Goal.} 
+
+Exploration of the potential of FPGA acceleration with High Level Synthesis tools will be done through the design of an SDP prototype for \textbf{NenuFAR} \cite{nenufar} ; this very large low-frequency radio telescope located at Nançay Observatory has been inaugurated in Oct. 2019. It will produce visibility throughput about one hundred times lower than SKA1-LOW and adjustable to the single node prototype capabilities. The FPGA prototype will be designed through Intel FPGA SDK for OpenCL ; The FPGA prototype will be set up at Nançay, connected to the correlator output visibility stream, to run in realtime its SDP pipeline. A main interest of this study is to deliver performance feedbacks in time, memory and energy to SimSDP. Indeed evaluation of the performance gain using FPGA inside HPC nodes in this specific use case, will be particulary useful to assess which role FPGA could play in future  SKA like HPC projects.
+
 
 
  \paragraph{Candidate Profile.} 
